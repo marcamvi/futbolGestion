@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/welcome.blade.php</file>
+            <file>file:/C:/xampp/htdocs/futbolGestion/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/futbolGestion/database/migrations/2022_05_05_084802_create_equipo_table.php</file>
+            <file>file:/C:/xampp/htdocs/futbolGestion/public/index.php</file>
+            <file>file:/C:/xampp/htdocs/futbolGestion/database/migrations/2022_05_05_084519_create_entidad_table.php</file>
+            <file>file:/C:/xampp/htdocs/futbolGestion/database/migrations/2022_05_05_085040_create_partido_table.php</file>
+            <file>file:/C:/xampp/htdocs/futbolGestion/.env</file>
+            <file>file:/C:/xampp/htdocs/futbolGestion/database/migrations/2022_05_05_085105_create_resultado_table.php</file>
         </group>
     </open-files>
 </project-private>
