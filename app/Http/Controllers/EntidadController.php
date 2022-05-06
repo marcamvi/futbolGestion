@@ -7,20 +7,20 @@ use Illuminate\Http\Request;
 class EntidadController extends Controller
 {
     public function indexEquipo ($entidad) {
-        return "Bienvenid@ $entidad. Esta es una vista de todos tus equipos. Selecciona el equipo a gestionar.";
+        return view ("Entidad.indexEquipo", ['entidad'=> $entidad]);
     }
     public function createEquipo ($entidad) {
-        return "Bienvenid@ a la creación de equipos";
+        return view ("Entidad.createEquipo", ['entidad'=> $entidad]);
     }
     
     public function showEquipo ($entidad, $equipo) {
-        return "Bienvenid@ al equipo $equipo. Esta es una vista de todos los partidos del equipo. Selecciona el equipo a gestionar.";
+        return view ("Entidad.showEquipo", ['entidad'=> $entidad, 'equipo'=> $equipo]);
     }
     
     public function createPartido ($entidad, $equipo) {
-        return "Bienvenid@ a la creación de partidos.";
+        return view ("Entidad.createPartido", ['entidad'=> $entidad, 'equipo'=> $equipo]);
     }
     public function createResultado ($entidad, $equipo, $partido) {
-       return "Bienvenid@ a la creación de resultados"; 
+       return view ("Entidad.createResultado", ['entidad'=> $entidad, 'equipo'=> $equipo, 'partido'=> $partido]); 
     }
 }

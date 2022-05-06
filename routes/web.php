@@ -15,9 +15,12 @@ use App\Http\Controllers\EntidadController;
 */
 
 Route::get('/', HomeController::class);
-Route::get('{entidad}', [EntidadController::class, 'indexEquipo']);
-Route::get('{entidad}/nuevo-equipo', [EntidadController::class, 'createEquipo']);
-Route::get('{entidad}/{equipo}', [EntidadController::class, 'showEquipo']);
-Route::get('{entidad}/{equipo}/nuevo-partido', [EntidadController::class, 'createPartido']);
 
-Route::get('{entidad}/{equipo}/{partido}/nuevo-resultado', [EntidadController::class, 'createResultado'] );
+Route::controller(EntidadController::class)->group(function (){
+  Route::get('{entidad}','indexEquipo');
+Route::get('{entidad}/nuevo-equipo','createEquipo');
+Route::get('{entidad}/{equipo}','showEquipo');
+Route::get('{entidad}/{equipo}/nuevo-partido', 'createPartido');
+Route::get('{entidad}/{equipo}/{partido}/nuevo-resultado', 'createResultado');  
+});
+
