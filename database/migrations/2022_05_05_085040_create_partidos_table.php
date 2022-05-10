@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('partido', function (Blueprint $table) {
+        Schema::create('partidos', function (Blueprint $table) {
             $table->id();
             $table->date('Fecha');
             $table->enum('Estado', ['Pendiente', 'Jugado', 'Anulado']);
@@ -21,19 +21,19 @@ return new class extends Migration
                     ->nullable();
             $table->unsignedBigInteger('local_id')
                     -> nullable();
-            $table->unsignedBigInteger('resultado_id')
+            $table->unsignedBigInteger('resultados_id')
                     -> nullable();
             $table->foreign('visitante_id')
                     ->references('id')
-                    ->on('equipo')
+                    ->on('equipos')
                     ->onDelete('set null');
             $table->foreign('local_id')
                     ->references('id')
-                    ->on('equipo')
+                    ->on('equipos')
                     ->onDelete('set null');
-            $table->foreing('resultado_id')
+            $table->foreign('resultados_id')
                     ->references('id')
-                    ->on('resultado')
+                    ->on('resultados')
                     ->onDelete('set null');
             $table->timestamps();
         });
@@ -46,6 +46,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('partido');
+        Schema::dropIfExists('partidos');
     }
 };

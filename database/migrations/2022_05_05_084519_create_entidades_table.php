@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('resultado', function (Blueprint $table) {
-            $table->id()->nullable();
-            $table->integer('Resultado equipo local')->nullable();
-            $table->integer('Resultado equipo visitante')->nullable(); 
+        Schema::create('entidades', function (Blueprint $table) {
+            $table->id();
+            $table->string('Nombre');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resultado');
+        Schema::dropIfExists('entidades');
     }
 };
