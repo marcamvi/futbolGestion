@@ -17,24 +17,14 @@ return new class extends Migration
             $table->id();
             $table->date('Fecha');
             $table->enum('Estado', ['Pendiente', 'Jugado', 'Anulado']);
-            $table->unsignedBigInteger('visitante_id')
-                    ->nullable();
-            $table->unsignedBigInteger('local_id')
-                    -> nullable();
-            $table->unsignedBigInteger('resultados_id')
-                    -> nullable();
-            $table->foreign('visitante_id')
-                    ->references('id')
-                    ->on('equipos')
-                    ->onDelete('set null');
-            $table->foreign('local_id')
-                    ->references('id')
-                    ->on('equipos')
-                    ->onDelete('set null');
-            $table->foreign('resultados_id')
-                    ->references('id')
-                    ->on('resultados')
-                    ->onDelete('set null');
+
+            $table->foreignId('visitante_id')
+                    ->constrained('equipos');
+            $table->foreignId('local_id')
+                    ->constrained('equipos');
+            $table->foreignId('resultado_id')
+                    ->constrained('resultados');
+
             $table->timestamps();
         });
     }
