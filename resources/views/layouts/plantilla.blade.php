@@ -9,7 +9,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-	<title>Futbol Gestion</title>
+       <link  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet"/>
+	<title>Quidditch Gestion</title>
 </head>
 <body style = "font-family: 'Caveat', cursive;">
     
@@ -30,15 +31,7 @@
       </div>
     </div>
   </div>
-        <!--<section class="flex flex-wrap items-center">
-                <img src="{{URL::asset('/portada.jpg')}}" class="max-w-full h-auto" alt="" />
-            <div class="items-center place-content-center absolute top-0 left-0 px-6 py-4">
-                <div class="font-serif font-bold text-8xl text-orange-500 italic ">FutGes App</div>
-                <h2 class="text-2xl">Tu aplicación de gestión de equipos y partidos</h2>
-            
-            </div>
-            <p class= "italic text-center">Joli</p>
-        </section>-->
+
         
     </header>
 

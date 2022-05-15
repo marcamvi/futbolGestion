@@ -3,18 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/futbolGestion/public/css/app.css</file>
             <file>file:/C:/xampp/htdocs/futbolGestion/routes/web.php</file>
             <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/Home.blade.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/Entidad/createResultado.blade.php</file>
+            <file>file:/C:/xampp/htdocs/futbolGestion/storage/framework/views/c2e6dd1c8ae7da6a6831da3fc8d8c7c976796ef4.php</file>
             <file>file:/C:/xampp/htdocs/futbolGestion/resources/css/app.css</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/Entidad/createEquipo.blade.php</file>
+            <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/Entidad/indexEquipo.blade.php</file>
             <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/layouts/plantilla.blade.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/database/migrations/2022_05_05_085040_create_partido_table.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/Entidad/createPartido.blade.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/Entidad/showEquipo.blade.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/tailwind.config.js</file>
+            <file>file:/C:/xampp/htdocs/futbolGestion/app/Http/Controllers/EntidadController.php</file>
             <file>file:/C:/xampp/htdocs/futbolGestion/webpack.mix.js</file>
+            <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/Entidad/createPartido.blade.php</file>
         </group>
     </open-files>
 </project-private>

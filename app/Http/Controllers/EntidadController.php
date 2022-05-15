@@ -13,14 +13,12 @@ class EntidadController extends Controller
         return view ("Entidad.createEquipo", ['entidad'=> $entidad]);
     }
     
-    public function showEquipo ($entidad, $equipo) {
-        return view ("Entidad.showEquipo", ['entidad'=> $entidad, 'equipo'=> $equipo]);
-    }
+
     
-    public function createPartido ($entidad, $equipo) {
-        return view ("Entidad.createPartido", ['entidad'=> $entidad, 'equipo'=> $equipo]);
+    public function createPartido ($entidad) {
+        return view ("Entidad.createPartido", ['entidad'=> $entidad]);
     }
-    public function createResultado ($entidad, $equipo, $partido) {
-       return view ("Entidad.createResultado", ['entidad'=> $entidad, 'equipo'=> $equipo, 'partido'=> $partido]); 
+    public function createResultado ($entidad) {
+       return view ("Entidad.createResultado", ['entidad'=> $entidad]); 
     }
 }
