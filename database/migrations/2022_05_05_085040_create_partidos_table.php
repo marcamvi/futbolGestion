@@ -17,12 +17,14 @@ return new class extends Migration
             $table->id();
             $table->date('Fecha');
             $table->enum('Estado', ['Pendiente', 'Jugado', 'Anulado']);
+
             $table->foreignId('visitante_id')
                     ->constrained('equipos');
             $table->foreignId('local_id')
                     ->constrained('equipos');
             $table->foreignId('resultado_id')
                     ->constrained('resultados');
+
             $table->timestamps();
         });
     }
