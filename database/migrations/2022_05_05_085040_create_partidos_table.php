@@ -16,14 +16,20 @@ return new class extends Migration
         Schema::create('partidos', function (Blueprint $table) {
             $table->id();
             $table->date('Fecha');
-            $table->enum('Estado', ['Pendiente', 'Jugado', 'Anulado']);
-
-            $table->foreignId('visitante_id')
-                    ->constrained('equipos');
-            $table->foreignId('local_id')
-                    ->constrained('equipos');
-            $table->foreignId('resultado_id')
-                    ->constrained('resultados');
+            $table->time('Hora');
+            $table->string('Estado');
+            $table->unsignedBigInteger('visitante_id')->nullable();
+            $table->unsignedBigInteger('local_id')->nullable();
+            $table->unsignedBigInteger('resultado_id')
+                    ->nullable();
+            $table->foreign('local_id')
+                    ->references('id')->on('equipos')                    ->onDelete('set null');
+            $table->foreign('visitante_id')
+                    ->references('id')->on('equipos')                    ->onDelete('set null');
+            $table->foreign('resultado_id')
+                    ->references('id')->on('resultados')
+                    ->onDelete('set null');
+           
 
             $table->timestamps();
         });

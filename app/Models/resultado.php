@@ -9,4 +9,19 @@ class resultado extends Model
 {
     use HasFactory;
 
+    public function partido () {
+        return $this->belongsTo(partido::class);
+    }
+    protected function Resultado_equipo_visitante():Attribute {
+        return Attribute::make(
+            get: fn($value) =>$value,
+            set: fn ($value) => $value
+        );
+    }
+            protected function Resultado_equipo_local():Attribute {
+        return Attribute::make(
+            get: fn($value) =>$value,
+            set: fn ($value) => $value
+        );
+    }
 }

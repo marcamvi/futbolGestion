@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('resultados', function (Blueprint $table) {
             $table->id()->nullable();
-            $table->integer('Resultado equipo local')->nullable();
-            $table->integer('Resultado equipo visitante')->nullable(); 
+            $table->integer('Resultado_equipo_local')->nullable();
+            $table->integer('Resultado_equipo_visitante')->nullable(); 
             $table->timestamps();
         });
     }

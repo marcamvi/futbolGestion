@@ -5,7 +5,7 @@
 <section class="overflow-hidden">
     <div class="container py-2 mx-auto">
         <div class="flex flex-wrap justify-end -m-1 md:-m-2">
-            <button> <a href="./">
+            <button> <a href="{{route('entidades.indexEquipo', $entidad)}}">
                 <i class="fa-solid fa-arrow-right-from-bracket cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 flex justify-end">                  
                 </i></a>
             </button>
@@ -28,8 +28,8 @@
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Nombre Equipo Visitante</th>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Fecha</th>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Hora</th>
-                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Ganador</th>
-                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Resultado</th>
+                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Resultado Equipo Local</th>
+                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Resultado Equipo Visitante</th>
                                     
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Editar Resultado</th>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Borrar Resultado</th>
@@ -37,77 +37,36 @@
             
                             </thead>
                             <tbody>
+                                @foreach ($resultados as $resultado)
                                 <tr class="bg-white border-b">
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">1</td>
+                                    
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$resultado->id}}</td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">Gryffindor Junior</td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">Slytherin Junior</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">20/05/2022</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">17:53</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">Gryffindor Junior</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">150vs70</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">10/05/2022</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">12:05</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$resultado->Resultado_equipo_local}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$resultado->Resultado_equipo_visitante}}</td>
                                     <td> 
-                                        <button type="button" onclick="openModal('modal')">
+                                        <button type="button"><a href="{{route('entidades.editResultado', [$entidad, $resultado])}}">
+                                            
                                             <i class="fa-solid fa-wand-sparkles cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 "></i> 
-                                        </button>
-                                        <div id="modal" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4">
-                                            <div class="relative top-40 mx-auto shadow-lg rounded-md bg-white max-w-md">
-                                            <!-- Modal header -->
-                                                <div class="flex justify-between items-center bg-gray-500 text-white text-xl rounded-t-md px-4 py-2">
-                                                    <h3>Edición de resultado</h3>
-                                                        <button onclick="closeModal()">x</button>
-                                                </div>
-
-                                                <!-- Modal body -->
-                                                <form>
-                                                                                                        <div class="form mx-3 mb-3 xl:w-96">
-                                                    <label for="editarResultado" class="form-label inline-block mb-2 text-gray-700">Introduce el resultado</label>
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                            form-control
-                                                            block
-                                                            w-full
-                                                            px-3
-                                                            py-1.5
-                                                            text-base
-                                                            font-normal
-                                                            text-gray-700
-                                                            bg-white bg-clip-padding
-                                                            border border-solid border-gray-300
-                                                            rounded
-                                                            transition
-                                                            ease-in-out
-                                                            m-0
-                                                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                                            id="editarResultado"
-                                                            placeholder="150vs150"
-                                                        />
-                                                    </div>
-                                                        <div class="flex space-x-2 justify-center">
-<button type="submit" class="inline-block px-6 py-2.5 mb-10 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out" onclick="closeModal()">Guardar</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        <script type="text/javascript">
-                                            function openModal(modalId) {
-                                                modal = document.getElementById(modalId)
-                                                modal.classList.remove('hidden')
-                                            }
-
-                                            function closeModal() {
-                                                modal = document.getElementById('modal')
-                                                modal.classList.add('hidden')
-                                            }
-                                        </script>
+                                            </a>  </button>
+                                        
                   
                                     </td>
                                     <td> 
-                                        <button type="button">
+                                        <form action ="{{route('entidades.deleteResultado', [$entidad,$resultado])}}" method="post">
+                           @csrf 
+       @method ('delete')                         
+                                        <button type="submit">
                                             <i class="fa-solid fa-trash cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1"></i>
                                         </button> 
+                                        </form>
                                     </td>
+                                    
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -121,7 +80,8 @@
         <div>
         <h1>NUEVO RESULTADO</h1>
         </div>
-            <form>
+            <form action="{{route('entidades.createResultado', $entidad)}}" method="POST">
+            @csrf
                 <div class="form-group mb-3 xl:w-96">        
                     <label for="codigoPartido" class="form-label inline-block mb-2 text-gray-700">Código del Partido</label>
                         <select class="form-select appearance-none
@@ -140,13 +100,15 @@
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
                         <option selected>Código</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        @foreach ($partidos as $partido)
+                        @continue($partido->entidad_id != $entidad)
+                        <option value="{{$partido->id}}">{{$partido->id}}</option>
+
+                        @endforeach
                     </select>
                 </div>
                 <div class="form mx-3 mb-3 xl:w-96">
-                    <label for="nuevoResultado" class="form-label inline-block mb-2 text-gray-700">Introduce el resultado</label>
+                    <label for="nuevoResultadoLocal" class="form-label inline-block mb-2 text-gray-700">Introduce el resultado del equipo local</label>
                                                         <input
                                                             type="text"
                                                             class="
@@ -165,15 +127,39 @@
                                                             ease-in-out
                                                             m-0
                                                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                                            id="nuevoResultado"
-                                                            placeholder="150vs150"
+                                                            name="nuevoResultadoLocal"
+                                                            placeholder="Resultado"
+                                                        />
+                                                    </div>
+                                <div class="form mx-3 mb-3 xl:w-96">
+                    <label for="nuevoResultadoVisitante" class="form-label inline-block mb-2 text-gray-700">Introduce el resultado del equipo visitante</label>
+                                                        <input
+                                                            type="text"
+                                                            class="
+                                                            form-control
+                                                            block
+                                                            w-full
+                                                            px-3
+                                                            py-1.5
+                                                            text-base
+                                                            font-normal
+                                                            text-gray-700
+                                                            bg-white bg-clip-padding
+                                                            border border-solid border-gray-300
+                                                            rounded
+                                                            transition
+                                                            ease-in-out
+                                                            m-0
+                                                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                                            name="nuevoResultadoVisitante"
+                                                            placeholder="Resultado"
                                                         />
                                                     </div>
                 
                         <div class="text-sm text-gray-500 mt-1">*Ten a mano a tu muggle de confianza por si tienes dudas</div>
                         <div class="flex space-x-2 justify-center">
                         <button
-                            name="nuevoResultado"
+                           
                             type="submit"
                             data-mdb-ripple="true"
                             data-mdb-ripple-color="light"

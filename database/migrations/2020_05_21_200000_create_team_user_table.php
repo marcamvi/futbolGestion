@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('resultados', function (Blueprint $table) {
-            $table->id()->nullable();
-            $table->integer('Resultado equipo local')->nullable();
-            $table->integer('Resultado equipo visitante')->nullable(); 
+        Schema::create('team_user', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('team_id');
+            $table->foreignId('user_id');
+            $table->string('role')->nullable();
             $table->timestamps();
+
+            $table->unique(['team_id', 'user_id']);
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resultados');
+        Schema::dropIfExists('team_user');
     }
 };
