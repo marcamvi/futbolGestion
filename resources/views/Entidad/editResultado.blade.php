@@ -43,6 +43,7 @@
                     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     name="nuevoResultadoLocal"
                     placeholder="Resultado"
+                    value="{{$resultado->Resultado_equipo_local}}"
                     />
             </div>
             <div class="form mx-3 mb-3 xl:w-96">
@@ -67,6 +68,7 @@
                     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     name="nuevoResultadoVisitante"
                     placeholder="Resultado"
+                    value="{{$resultado->Resultado_equipo_local}}"
                     />
             </div>
 

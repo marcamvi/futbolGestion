@@ -21,7 +21,8 @@ return new class extends Migration
             $table->unsignedBigInteger('visitante_id')->nullable();
             $table->unsignedBigInteger('local_id')->nullable();
             $table->unsignedBigInteger('resultado_id')
-                    ->nullable();
+                    ->nullable()
+                    ->unique();
             $table->foreign('local_id')
                     ->references('id')->on('equipos')                    ->onDelete('set null');
             $table->foreign('visitante_id')

@@ -10,33 +10,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class EntidadController extends Controller {
-    /* public function indexEq (Request $request) {
-      $entidad = equipo::find(1)->entidade;
-      dd($entidad);
-      } */
-    /* public function find(Request $request){
-      $entidad=$request->get('entidad');
-      $entidades=DB::table('entidades')->select('id', 'Nombre')
-      ->where('Nombre', 'Like', $entidad);
-      return compact('entidades', 'entidad');
-      } */
-    /*  public function indexEnt (Request $request) {
-      $equipo = entidade::find(1)->equipo;
-      dd($equipo);
-      } */
 
     public function indexEquipo($entidad) {
+        $entidades = entidade::all();
         $equipos = equipo::all();
-        return view("Entidad.indexEquipo", ['entidad' => $entidad], compact('equipos'));
+        return view("Entidad.indexEquipo", ['entidad' => $entidad], compact('equipos','entidades'));
     }
 
-    /* public function show ($entidad){
-      $equipostable=DB::table('equipos')->select('Nombre_Equipo, entidad_id')
-      ->join ()
-      ->where($entidad, "=", 'entidad_id');
-      } */
-
     public function createEquipo(Request $request, $entidad) {
+
         $equipo = new equipo();
         $equipo->Nombre_equipo = $request->nuevoEquipo;
         $equipo->entidad_id = $entidad;
@@ -108,16 +90,23 @@ class EntidadController extends Controller {
 
     public function indexResultado($entidad) {
         $partidos = partido::all();
+        $equipos = equipo::all();
         $resultados = resultado::all();
-        return view("Entidad.createResultado", ['entidad' => $entidad], compact('partidos', 'resultados'));
+        return view("Entidad.createResultado", ['entidad' => $entidad], compact('partidos', 'resultados', 'equipos'));
     }
 
-    public function createResultado(Request $request, $entidad) {
+    public function createResultado(Request $request, $entidad, partido $partido) {
+        $partido = partido::find($partido->local_id = $request->equipoLocal);
 
         $resultado = new resultado();
         $resultado->Resultado_equipo_local = $request->nuevoResultadoLocal;
         $resultado->Resultado_equipo_visitante = $request->nuevoResultadoVisitante;
         $resultado->save();
+        $partido->resultado()->associate($resultado)->save();
+       
+        
+        
+        
 
         return redirect()->route("entidades.indexResultado", ['entidad' => $entidad]);
     }
@@ -127,10 +116,11 @@ class EntidadController extends Controller {
         return view("Entidad.editResultado", ['entidad' => $entidad], compact('resultado', 'partidos'));
     }
 
-    public function updateResultado($entidad, resultado $resultado, Request $request) {
+    public function updateResultado($entidad, resultado $resultado, Request $request, partido $partido) {
+        
         $resultado->Resultado_equipo_local = $request->nuevoResultadoLocal;
         $resultado->Resultado_equipo_visitante = $request->nuevoResultadoVisitante;
-        $resultado->save();
+        $partido->resultado()->save($resultado);
         return redirect()->route("entidades.indexResultado", ['entidad' => $entidad]);
     }
 

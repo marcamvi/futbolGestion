@@ -12,7 +12,7 @@
         </div>
 </section>
 
-<h1 class="text-center mt-5">Bienvenid@ a la creación de partidos. </h1>
+<h1 class="text-center mt-5 text-2xl">Bienvenid@ a la creación de partidos. </h1>
 
 <section class="overflow-hidden">
     <div class="container flex flex-wrap justify-center px-5 py-2 mx-auto lg:pt-12 lg:px-32">
@@ -24,8 +24,8 @@
                             <thead class="border-b bg-gray-800">
                                 <tr>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Código del partido</th>
-                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Nombre Equipo Local</th>
-                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Nombre Equipo Visitante</th>
+                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Código Equipo Local</th>
+                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Código Equipo Visitante</th>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Fecha</th>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Hora</th>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Estado del partido</th>
@@ -35,31 +35,41 @@
 
                             </thead>
                             <tbody>
+                                @foreach ($equipos as $equipo)
+                                @php $equipo_id=$equipo->id @endphp
+                                @if($equipo->entidad_id == $entidad)
+
                                 @foreach ($partidos as $partido)
+
+                                @if ($partido->local_id==$equipo_id || $partido->visitante_id==$equipo_id)                                                                
+                                @php $equipolocal = $partido->local_id @endphp
+                                @php $equipovisitante = $partido->visitante_id @endphp
+
+
                                 <tr class="bg-white border-b">
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->id}}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->local_id}}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->visitante_id}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$equipolocal}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$equipovisitante}}</td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->Fecha}}</td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->Hora}}</td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->Estado}}</td>
                                     <td> 
                                         <button type="button"><a href="{{route('entidades.editPartido', [$entidad, $partido])}}">
-                                            <i class="fa-solid fa-wand-sparkles cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 "></i> 
+                                                <i class="fa-solid fa-wand-sparkles cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 "></i> 
                                             </a></button>                      
 
                                     </td>
                                     <td>
                                         <form action="{{route('entidades.deletePartido', [$entidad,$partido])}}" method="post">
-       @csrf 
-       @method ('delete')            
-                                        <button type="submit">
-                                            <i class="fa-solid fa-trash cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1"></i>
-                                        </button> 
+                                            @csrf 
+                                            @method ('delete')            
+                                            <button type="submit">
+                                                <i class="fa-solid fa-trash cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1"></i>
+                                            </button> 
                                         </form>
                                     </td>
                                 </tr>
-                                @endforeach 
+                                @endif @endforeach @endif @endforeach 
                             </tbody>
                         </table>
                     </div>

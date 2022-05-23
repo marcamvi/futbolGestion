@@ -10,7 +10,7 @@ class resultado extends Model
     use HasFactory;
 
     public function partido () {
-        return $this->belongsTo(partido::class);
+        return $this->hasOne(partido::class);
     }
     protected function Resultado_equipo_visitante():Attribute {
         return Attribute::make(

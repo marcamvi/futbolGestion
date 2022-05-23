@@ -17,7 +17,7 @@ class partido extends Model
         return $this->belongsTo(equipo::class, 'visitante_id');
     }
       public function resultado() {
-        return $this->hasOne(resultado::class);
+        return $this->belongsTo(resultado::class);
     }
     
    protected function Fecha():Attribute {
@@ -40,12 +40,12 @@ class partido extends Model
         );
     }
         
-    protected function visitante_id():Attribute {
+    /*protected function visitante_id():Attribute {
         return Attribute::make(
             get: fn($value) =>$value,
             set: fn ($value) =>$value
         );
-    }
+    }*/
             
     protected function local_id():Attribute {
         return Attribute::make(
@@ -54,10 +54,10 @@ class partido extends Model
         );
     }
             
-    protected function resultado_id():Attribute {
+    /*protected function resultado_id():Attribute {
         return Attribute::make(
                       get: fn($value) =>$value,
             set: fn ($value) =>$value
         );
-    }
+    }*/
 }

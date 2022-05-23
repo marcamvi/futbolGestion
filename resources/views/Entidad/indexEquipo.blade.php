@@ -14,7 +14,15 @@
         </div>
 </section>
 
-<h1 class="text-center mt-5">Bienvenid@ {{$entidad}}. Esta es una vista de todos tus equipos. </h1>
+
+@foreach ($entidades as $entitat)
+    @break($entitat->id == $entidad)
+    @endforeach
+    <p class="text-center mt-5 text-2xl">Bienvenid@ {{$entitat->Nombre}}. Esta es una vista de todos tus equipos.</p>
+ 
+
+
+    
 
 <section class="overflow-hidden">
     <div class="container flex flex-wrap justify-center px-5 py-2 mx-auto lg:pt-12 lg:px-32">
@@ -26,9 +34,7 @@
                             <thead class="border-b bg-gray-800">
                                 <tr>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4"> Nombre Equipo</th>
-                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Partidos Pendientes</th>
-                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Victorias</th>    
-                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Derrotas</th>
+                                    
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Editar Equipo</th>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Borrar Equipo</th>
                                 </tr>
@@ -43,9 +49,7 @@
                                     
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"> {{$equipo->Nombre_equipo}}</td>
                                    
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">4</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">3</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">2</td>
+                                    
                                     <td> 
                                         
                                         <button type="button"><a href="{{route('entidades.editEquipo', [$entidad, $equipo])}}">
@@ -80,7 +84,7 @@
                 @csrf
                 
                 <div class="mb-3 xl:w-96">        
-                    <label for="nuevoEquipo" class="form-label inline-block mb-2 text-gray-700" name="idEntidad">Introduce el nombre del nuevo equipo de <?php echo $entidad; ?></label>
+                    <label for="nuevoEquipo" class="form-label inline-block mb-2 text-gray-700" name="idEntidad">Introduce el nombre del nuevo equipo de {{$entitat->Nombre}}</label>
                     <input
                         type="text"
                         class="
