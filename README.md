@@ -23,6 +23,6 @@ Una vez dentro de la casa de Hogwarts (o entidad) no sólo podremos crear equipo
 sino que también seremos capaces de calendarizar partidos
 ![partidos](https://raw.githubusercontent.com/marcamvi/futbolGestion/main/asset/partido.png)
 y añadir resultados, aunque para ello será necesario que el partido esté en estado "Jugado".
-![equipos](https://raw.githubusercontent.com/marcamvi/futbolGestion/main/asset/resultado.png)
+![resultados](https://raw.githubusercontent.com/marcamvi/futbolGestion/main/asset/resultado.png)
 
 Excepto en la tabla vehicular de entidades, en todas las otras tablas de la base de datos puede realizarse un CRUD.
