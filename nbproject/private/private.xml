@@ -3,21 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/futbolGestion/database/migrations/2022_05_04_085105_create_resultados_table.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/database/migrations/2022_05_05_084519_create_entidades_table.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/layouts/plantilla.blade.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/Entidad/createPartido.blade.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/.env</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/app/Models/User.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/database/migrations/2022_05_05_084802_create_equipos_table.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/routes/web.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/resources/css/app.css</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/app/Http/Controllers/HomeController.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/Entidad/createResultado.blade.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/resources/views/Entidad/indexEquipo.blade.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/webpack.mix.js</file>
+            <file>file:/C:/xampp/htdocs/futbolGestion/README.md</file>
             <file>file:/C:/xampp/htdocs/futbolGestion/app/Http/Controllers/EntidadController.php</file>
-            <file>file:/C:/xampp/htdocs/futbolGestion/database/migrations/2022_05_05_085040_create_partidos_table.php</file>
         </group>
     </open-files>
 </project-private>
