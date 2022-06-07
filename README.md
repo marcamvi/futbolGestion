@@ -17,9 +17,9 @@ Pasos previos:
 - Dentro del proyecto se deberá copiar el archivo con nombre .env.example y renombrar por .env
 - Accediendo a este archivo, donde pone DB_DATABASE = se escribirá futbolgestion en caso de que no se haya generado correctamente.
 - Se necesitará una Key que se generará desde terminal con el compando php artisan key:generate.
-- Se deberá crear una base de datos vacía, para ello puede utilizarse, por ejemplo, PHPmyAdmin o MySQL Workbench. Esta base de datos debe llevar por nombre futbolgestion.
-- Desde terminal se deberá hacer las migraciones de las tablas de la base de datos por medio del comando php artisan migrate. Con tal de que coja los seeders, se deberá utilizar el comando php artisan migrate:fresh --seeds
-- A partir de aquí, debería poderse acceder a la aplicación por medio de localhost/futbolgestion/public/
+- Se deberá crear una base de datos vacía, para ello puede utilizarse, por ejemplo, PHPmyAdmin o MySQL Workbench. Esta base de datos debe llevar por nombre futbolgestion. Collation utilizado 'utf8mb4_general_ci'.
+- Desde terminal se deberá hacer las migraciones de las tablas de la base de datos por medio del comando php artisan migrate. Con tal de que coja los seeders, se deberá utilizar el comando php artisan migrate:fresh --seed
+- A partir de aquí, debería poderse acceder a la aplicación por medio de localhost/futbolGestion/public/
 
 En este ejercicio puede verse una página web de gestión de equipos de quidditch (¡el fútbol de los magos!) en la cual podremos crear equipos en función de la casa de Hogwarts. 
 
