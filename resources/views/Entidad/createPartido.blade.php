@@ -24,8 +24,8 @@
                             <thead class="border-b bg-gray-800">
                                 <tr>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Código del partido</th>
-                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Código Equipo Local</th>
-                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Código Equipo Visitante</th>
+                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Equipo Local</th>
+                                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">Equipo Visitante</th>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Fecha</th>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Hora</th>
                                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">Estado del partido</th>
