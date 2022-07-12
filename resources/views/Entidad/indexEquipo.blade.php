@@ -8,7 +8,7 @@
     <div class="container py-2 mx-auto">
         <div class="flex flex-wrap justify-end -m-1 md:-m-2">
             <button> <a href="{{route('home')}}">
-                <i class="fa-solid fa-arrow-right-from-bracket cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 flex justify-end">                  
+                <i class="fa-solid fa-arrow-left cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 flex justify-end mr-10">                  
                 </i></a>
             </button>
         </div>
@@ -84,7 +84,7 @@
                 @csrf
                 
                 <div class="mb-3 xl:w-96">        
-                    <label for="nuevoEquipo" class="form-label inline-block mb-2 text-gray-700" name="idEntidad">Introduce el nombre del nuevo equipo de {{$entitat->Nombre}}</label>
+                    <label for="nuevoEquipo" class="form-label inline-block mb-2 text-gray-700" name="idEntidad">Introduce el nombre del nuevo <br> equipo de {{$entitat->Nombre}}</label>
                     <input
                         type="text"
                         class="
@@ -106,7 +106,7 @@
                         name="nuevoEquipo"
                         placeholder="Nombre"
                     />
-                    <div class="text-sm text-gray-500 mt-1">*Ten a mano a tu muggle de confianza por si tienes dudas</div>
+                    <div class="text-sm text-gray-500 mt-1">*Ten a mano a tu muggle de confianza <br>por si tienes dudas</div>
                     <div class="flex space-x-2 justify-center">
                         <button
 
@@ -120,14 +120,14 @@
                 </div>
             </form>
             <div class="flex flex-wrap">
-                <div class="w-full p-1 md:p-2 hover:opacity-60 transition duration-300 ease-in-out">
-                    <button type="button"> <a href="{{route('entidades.indexPartido', $entidad)}}"><img class="h-40 w-50" src="escoba.png"></a></button>
-                        <h5 class="text-gray-900 text-xl text-center font-medium mb-2">Calendarización y edición de partidos</h5>
+                <div class="w-50 p-1 md:p-2 hover:opacity-60 transition duration-300 ease-in-out">
+                    <button type="button"> <a href="{{route('entidades.indexPartido', $entidad)}}"><img class="h-20 w-50" src="escoba.png"></a></button>
+                    <h5 class="text-gray-900 text-xl text-center font-medium mb-2">Calendarización<br> y <br>edición de partidos</h5>
                 </div>
             </div>
             <div class="flex flex-wrap">
                 <div class="w-full p-1 md:p-2 hover:opacity-60 transition duration-300 ease-in-out">
-                    <button type="button"> <a href="{{route('entidades.indexResultado', $entidad)}}"><img class="h-40 w-50" src="bola.png"> </a></button>
+                    <button type="button"> <a href="{{route('entidades.indexResultado', $entidad)}}"><img class="h-20 w-50" src="bola.png"> </a></button>
                         <h5 class="text-gray-900 text-xl text-center font-medium mb-2">Ver Resultados</h5>
                 </div>
             </div>

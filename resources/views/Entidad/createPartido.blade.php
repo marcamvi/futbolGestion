@@ -6,7 +6,7 @@
     <div class="container py-2 mx-auto">
         <div class="flex flex-wrap justify-end -m-1 md:-m-2">
             <button> <a href="{{route('entidades.indexEquipo', $entidad)}}">
-                    <i class="fa-solid fa-arrow-right-from-bracket cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 flex justify-end">                  
+                    <i class="fa-solid fa-arrow-left cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 flex justify-end mr-10">                  
                     </i></a>
             </button>
         </div>
@@ -35,24 +35,21 @@
 
                             </thead>
                             <tbody>
-                                @foreach ($equipos as $equipo)
-                                @php $equipo_id=$equipo->id @endphp
-                                @if($equipo->entidad_id == $entidad)
 
+                                                           
                                 @foreach ($partidos as $partido)
+                                
+                               
 
-                                @if ($partido->local_id==$equipo_id || $partido->visitante_id==$equipo_id)                                                                
-                                @php $equipolocal = $partido->local_id @endphp
-                                @php $equipovisitante = $partido->visitante_id @endphp
 
 
                                 <tr class="bg-white border-b">
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->id}}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$equipolocal}}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$equipovisitante}}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->Fecha}}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->Hora}}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->Estado}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->nombreEquipoLocal}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->nombreEquipoVisitante}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->fecha}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->hora}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->estado}}</td>
                                     <td> 
                                         <button type="button"><a href="{{route('entidades.editPartido', [$entidad, $partido])}}">
                                                 <i class="fa-solid fa-wand-sparkles cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 "></i> 
@@ -69,7 +66,7 @@
                                         </form>
                                     </td>
                                 </tr>
-                                @endif @endforeach @endif @endforeach 
+                                @endforeach 
                             </tbody>
                         </table>
                     </div>
