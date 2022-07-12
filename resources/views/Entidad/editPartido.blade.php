@@ -6,7 +6,7 @@
     <div class="container py-2 mx-auto">
         <div class="flex flex-wrap justify-end -m-1 md:-m-2">
             <button> <a href="{{route('entidades.indexPartido', $entidad)}}">
-                    <i class="fa-solid fa-arrow-right-from-bracket cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 flex justify-end">           
+                    <i class="fa-solid fa-arrow-left cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 flex justify-end mr-10">           
                     </i></a>
             </button>
         </div>
@@ -78,7 +78,8 @@
                     <input type="date"
                            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                            placeholder="Selecciona una fecha"
-                           name="date"/>
+                           name="date"
+                           value="{{$partido->Fecha}}"/>
                 </div>
             </div>
             <div class="form-group mb-3 xl:w-96">
@@ -87,7 +88,8 @@
                     <input type="time"
                            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                            placeholder="Selecciona la hora"
-                           name="time"/>   
+                           name="time"
+                           value="{{$partido->Hora}}"/>   
                 </div>
             </div>
             <div class="form-group mb-3 xl:w-96">        
@@ -107,9 +109,19 @@
                         ease-in-out
                         m-0
                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="estado">
-                    <option selected value="Pendiente">Pendiente</option>
-                    <option value="Jugado">Jugado</option>
-                    <option value="Anulado">Anulado</option>
+                    
+                    <option selected value="{{$partido->Estado}}">{{$partido->Estado}}</option>
+                    @if ($partido->Estado=='Pendiente')
+                        <option value="Jugado">Jugado</option>
+                        <option value="Anulado">Anulado</option>
+                    @elseif ($partido->Estado=='Jugado')
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Anulado">Anulado</option>
+                    @else 
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Jugado">Jugado</option>
+                        
+                    @endif
                 </select>
             </div>
             <div class="text-sm text-gray-500 mt-1">*Ten a mano a tu muggle de confianza por si tienes dudas</div>

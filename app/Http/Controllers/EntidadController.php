@@ -44,9 +44,13 @@ class EntidadController extends Controller {
     }
 
     public function indexPartido($entidad) {
-        $partidos = partido::all();
         $equipos = equipo::all();
-        return view("Entidad.createPartido", ['entidad' => $entidad], compact('partidos', 'equipos'));
+        $partidos = partido::
+        join('equipos as equipoLocal', 'equipoLocal.id', '=', 'local_id')
+        ->join('equipos as equipoVisitante', 'equipoVisitante.id', '=', 'visitante_id')
+        ->select('partidos.id as id', 'partidos.Fecha as fecha', 'partidos.Hora as hora', 'partidos.Estado as estado', 'equipoLocal.Nombre_equipo as nombreEquipoLocal', 'equipoVisitante.Nombre_equipo as nombreEquipoVisitante', 'partidos.resultado_id as resultado_id', 'equipoLocal.entidad_id', 'equipoVisitante.entidad_id')
+                ->where('equipoLocal.entidad_id', '=', $entidad)->orWhere('equipoVisitante.entidad_id', '=', $entidad)->get();
+        return view("Entidad.createPartido", ['entidad' => $entidad, 'partidos'=>$partidos], compact('equipos'));
     }
 
     public function createPartido(Request $request, $entidad) {
@@ -91,8 +95,13 @@ class EntidadController extends Controller {
     public function indexResultado($entidad) {
         $partidos = partido::all();
         $equipos = equipo::all();
-        $resultados = resultado::all();
-        return view("Entidad.createResultado", ['entidad' => $entidad], compact('partidos', 'resultados', 'equipos'));
+        $resultados = resultado::
+        join('partidos', 'partidos.resultado_id', '=', 'resultados.id')
+                ->join('equipos as equipoLocal', 'equipoLocal.id', '=', 'local_id')
+        ->join('equipos as equipoVisitante', 'equipoVisitante.id', '=', 'visitante_id')
+        ->select('partidos.id as id', 'partidos.Fecha as fecha', 'partidos.Hora as hora', 'partidos.Estado as estado', 'equipoLocal.Nombre_equipo as nombreEquipoLocal', 'equipoVisitante.Nombre_equipo as nombreEquipoVisitante', 'resultados.Resultado_equipo_local as ResultadoLocal', 'resultados.Resultado_equipo_visitante as ResultadoVisitante', 'equipoLocal.entidad_id', 'equipoVisitante.entidad_id')
+                ->where('equipoLocal.entidad_id', '=', $entidad)->orWhere('equipoVisitante.entidad_id', '=', $entidad)->get();
+        return view("Entidad.createResultado", ['entidad' => $entidad, 'resultados' =>$resultados], compact('partidos', 'equipos'));
     }
 
     public function createResultado(Request $request, $entidad, partido $partido) {

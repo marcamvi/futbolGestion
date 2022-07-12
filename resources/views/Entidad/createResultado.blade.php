@@ -38,30 +38,20 @@
                             </thead>
                             <tbody>
 
-                                @foreach ($equipos as $equipo)
-                                @php $equipo_id=$equipo->id @endphp
-                                @if($equipo->entidad_id == $entidad)
 
-                                @foreach ($partidos as $partido)
-
-                                @if ($partido->local_id==$equipo_id || $partido->visitante_id==$equipo_id)                                                                
-                                @php $equipolocal = $partido->local_id @endphp
-                                @php $equipovisitante = $partido->visitante_id @endphp
-                                @php $resultadofinal = $partido->resultado_id @endphp
                                 @foreach ($resultados as $resultado)
-                                @if ($resultadofinal == $resultado->id)
                                 <tr class="bg-white border-b">
 
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$resultado->id}}</td>
 
 
 
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$equipolocal}}</td> 
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$equipovisitante}}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->Fecha}}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$partido->Hora}}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$resultado->Resultado_equipo_local}}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$resultado->Resultado_equipo_visitante}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$resultado->nombreEquipoLocal}}</td> 
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$resultado->nombreEquipoVisitante}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$resultado->fecha}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$resultado->hora}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$resultado->ResultadoLocal}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{$resultado->ResultadoVisitante}}</td>
                                     <td> 
                                         <button type="button"><a href="{{route('entidades.editResultado', [$entidad, $resultado])}}">
 
@@ -81,7 +71,7 @@
                                     </td>
 
                                 </tr>
-                                @endif @endforeach @endif @endforeach @endif 
+
                                 @endforeach
                             </tbody>
                         </table>

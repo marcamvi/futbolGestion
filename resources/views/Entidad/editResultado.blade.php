@@ -6,7 +6,7 @@
     <div class="container py-2 mx-auto">
         <div class="flex flex-wrap justify-end -m-1 md:-m-2">
             <button> <a href="{{route('entidades.indexResultado', $entidad)}}">
-                    <i class="fa-solid fa-arrow-right-from-bracket cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 flex justify-end">                  
+                    <i class="fa-solid fa-arrow-left cursor-pointer text-gray-300 text-2xl ease-in duration-300 hover:p-1 hover:rounded-lg hover:text-black hover:text-3xl active:bg-gray-300 active:rounded-md active:p-1 flex justify-end mr-10">                  
                     </i></a>
             </button>
         </div>
